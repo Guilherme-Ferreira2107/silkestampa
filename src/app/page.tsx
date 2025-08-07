@@ -1,103 +1,156 @@
+"use client";
+
+import { BoxReveal } from "@/components/magicui/box-reveal";
+import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
+import { ArrowRightIcon, SquareIcon, TriangleIcon, XIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "motion/react";
+import PixelImageComponent from "@/components/magicui/custom-pixel-image";
+
+// rgba(15,164,220) // azul
+// rgba(203,43,55) // vermelho
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="font-sans margin-auto w-full flex flex-col items-center justify-center">
+      <main className="w-full flex flex-col items-center justify-center">
+        <div className="flex w-full flex-col items-center pb-20">
+          <header className="w-full flex items-center justify-center bg-black px-4">
+            <div className="flex items-center justify-between w-full max-w-6xl text-white">
+              <div>
+                <Link href="/">
+                  <Image
+                    src={"/logo-250.webp"}
+                    alt="Logo SilkEstampa"
+                    width={80}
+                    height={80}
+                  />
+                </Link>
+              </div>
+              <nav>
+                <ul className="flex gap-12">
+                  <li>
+                    <Link href="/#servicos">Serviços</Link>
+                  </li>
+                  <li>
+                    <Link href="/#sobre">História</Link>
+                  </li>
+                  <li>
+                    <Link href="/#contato">Contatos</Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <section className="w-full">
+            <div className="w-full grid grid-cols-3">
+              <div className="custom-image-hero w-[600px]">
+                <PixelImageComponent
+                  src="/3.jpg"
+                  grayscaleAnimation
+                  pixelFadeInDuration={1100}
+                />
+              </div>
+
+              <div className="w-full col-span-2 border">
+                <div className="grid grid-cols text-[1.5rem] items-center justify-end text-black gap-10 p-10">
+                  <div className="flex flex-col items-start justify-between gap-30">
+                    <div>
+                      <BoxReveal boxColor={"rgba(203,43,55, 1)"} duration={0.5}>
+                        <h1 className="text-[4.5rem] font-semibold">
+                          SilkEstampa<span className="text-[#0fa4dcff]">.</span>
+                        </h1>
+                      </BoxReveal>
+
+                      <BoxReveal boxColor={"rgba(203,43,55, 1)"} duration={0.7}>
+                        <h2 className="text-sm">
+                          A melhor estamparia de{" "}
+                          <span className="text-[#0fa4dcff]">
+                            <strong>São Paulo</strong>
+                          </span>
+                        </h2>
+                      </BoxReveal>
+                    </div>
+
+                    <BoxReveal boxColor={"rgba(203,43,55, 1)"} duration={0.9}>
+                      <div className="max-w-[360px]">
+                        <p className="text-[1.2rem]">
+                          {"''"}Profissionalismo sem igual, uma equipe dedicada
+                          e apaixonada pelo que faz!{"''"}
+                        </p>
+                        <p className="text-sm text-right mt-2">
+                          - CEO da M3 Digital Solutions
+                        </p>
+                        <br />
+                      </div>
+                    </BoxReveal>
+
+                    <BoxReveal boxColor={"rgba(203,43,55, 1)"} duration={1.1}>
+                      <Link href="/servicos" className="custom-btn">
+                        <span>Faça seu pedido agora!</span>
+                        <ArrowRightIcon />
+                      </Link>
+                    </BoxReveal>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <motion.div
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            repeatDelay: 10,
+          }}
+          className={`absolute right-10 top-60`}
+        >
+          <TriangleIcon size={80} className={`text-[#cb2b37]`} />
+        </motion.div>
+
+        <motion.div
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            repeatDelay: 10,
+          }}
+          className={`absolute left-150 top-20`}
+        >
+          <XIcon size={120} className={`text-[#cb2b37]`} />
+        </motion.div>
+
+        <motion.div
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatDelay: 5,
+          }}
+          className={`absolute bottom-10`}
+        >
+          <SquareIcon size={60} className={`text-[#cb2b37]`} />
+          {/* 0fa4dc */}
+          {/* cb2b37 */}
+        </motion.div>
+
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden mt-4">
+          <VelocityScroll defaultVelocity={0.075} numRows={2}>
+            Camisetas Personalizadas | Bonés Personalizados | Uniformes
+            Personalizados | Coletes Personalizados | Polos Personalizados |
+            Uniformes Personalizados
+          </VelocityScroll>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
