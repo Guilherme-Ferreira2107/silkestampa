@@ -178,9 +178,10 @@
 }
 
 .custom-btn:hover {
-  background-color: black;
+  background-color: #cb2b37;
   color: white;
-  border-radius: 2rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .custom-btn:hover > svg {

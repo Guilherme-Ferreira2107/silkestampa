@@ -10,11 +10,11 @@ any) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Define que o código está sendo executado no lado do cliente
+    setIsClient(true);
   }, []);
 
   if (!isClient) {
-    return null; // Evita renderizar no servidor
+    return null;
   }
 
   return (
