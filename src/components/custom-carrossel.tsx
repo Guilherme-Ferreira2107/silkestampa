@@ -21,7 +21,7 @@ export const CustomCarrousel = () => {
     desktop: {
       // Desktop screen size
       breakpoint: { max: 1024, min: 768 },
-      items: 4,
+      items: 3,
     },
     tablet: {
       // Tablet screen size
@@ -56,7 +56,7 @@ export const CustomCarrousel = () => {
   };
 
   return (
-    <section className="w-full mt-20">
+    <section className="w-full">
       <div className="w-full flex flex-col items-center justify-center py-12">
         <Carousel
           additionalTransfrom={0}
@@ -80,7 +80,10 @@ export const CustomCarrousel = () => {
           customButtonGroup={<ButtonGroup />}
         >
           {images.map((image, index) => (
-            <div key={index} className="relative object-cover max-h-[400px]">
+            <div
+              key={index}
+              className="relative object-cover max-h-[200px] lg:max-h-[400px]"
+            >
               <Image
                 src={image}
                 alt={`Slide ${index + 1}`}
