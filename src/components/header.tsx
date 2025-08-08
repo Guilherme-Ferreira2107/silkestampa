@@ -4,7 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { XIcon } from "lucide-react";
+import { InstagramIcon, PhoneIcon, XIcon } from "lucide-react";
+import { IconAnimation } from "./icon-animation";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -76,10 +77,24 @@ export const Header = () => {
         animate={{ height: "100%", opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
+        <IconAnimation
+          className={`absolute left-0 top-20 z-10`}
+          size={120}
+          color={`text-[#cb2b37]`}
+          variant="x"
+        />
+
+        <IconAnimation
+          className={`absolute right-10 bottom-10 z-10`}
+          size={80}
+          color={`text-[#cb2b37]`}
+          variant="triangle"
+        />
+
         <div className="absolute top-4 right-4 z-51">
           <button
             onClick={() => setOpen(false)}
-            className="text-white text-3xl"
+            className="text-white text-3xl cursor-pointer"
           >
             <XIcon />
           </button>
@@ -87,17 +102,54 @@ export const Header = () => {
 
         <nav>
           <ul className="flex flex-col gap-8 text-white text-2xl">
-            <li>
-              <Link href="/#servicos">Serviços</Link>
+            <li className="relative group">
+              <Link href="/#servicos" className="hover:text-[#cb2b37]">
+                Serviços
+              </Link>
+              {/* Underline Animation */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#cb2b37] group-hover:w-full transition-all duration-300"></span>
             </li>
-            <li>
-              <Link href="/#sobre">História</Link>
+            <li className="relative group">
+              <Link href="/#sobre" className="hover:text-[#cb2b37]">
+                História
+              </Link>
+              {/* Underline Animation */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#cb2b37] group-hover:w-full transition-all duration-300"></span>
             </li>
-            <li>
-              <Link href="/#contato">Contatos</Link>
+            <li className="relative group">
+              <Link href="/#contato" className="hover:text-[#cb2b37]">
+                Contatos
+              </Link>
+              {/* Underline Animation */}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#cb2b37] group-hover:w-full transition-all duration-300"></span>
             </li>
           </ul>
         </nav>
+
+        {/* Social Media and Contact Buttons in Footer */}
+        <div className="absolute bottom-10 w-full px-4">
+          <div className="flex justify-center gap-4">
+            {/* Instagram Button */}
+            <a
+              href="https://www.instagram.com/silkestampa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white text-xl p-2 border border-white rounded-lg hover:bg-[#C13584] transition duration-300"
+            >
+              <InstagramIcon size={24} />
+            </a>
+
+            {/* WhatsApp Button */}
+            <a
+              href="https://api.whatsapp.com/send?phone=5511963620291&text=Olá, tudo bem?"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white text-xl p-2 border border-white rounded-lg hover:bg-[#128C7E] transition duration-300"
+            >
+              <PhoneIcon size={24} />
+            </a>
+          </div>
+        </div>
       </motion.div>
     </header>
   );

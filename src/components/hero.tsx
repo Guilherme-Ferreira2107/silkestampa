@@ -54,7 +54,11 @@ export const Hero = () => {
                 duration={1.1}
                 width="100%"
               >
-                <Link href="/servicos" passHref>
+                <Link
+                  href="https://api.whatsapp.com/send?phone=5511963620291&amp;text=Olá, tudo bem?"
+                  target="_blank"
+                  passHref
+                >
                   <button className="custom-btn">
                     <p className="text-[1.2rem] md:text-xl">
                       Faça seu pedido agora
