@@ -3,7 +3,6 @@
 import { VelocityScroll } from "@/components/magicui/scroll-based-velocity";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
-import { IconAnimation } from "@/components/icon-animation";
 
 // rgba(15,164,220) // azul
 // rgba(203,43,55) #cb2b37 // vermelho
